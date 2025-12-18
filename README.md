@@ -5,7 +5,6 @@ The analysis compares male and female sections using a cleaned Excel dataset and
 
 ## Requirements
 Before running the project, make sure you have:
-- Python 3
 - The following Python libraries:
   - pandas
   - matplotlib
