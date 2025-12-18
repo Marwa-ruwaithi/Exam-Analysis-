@@ -2,36 +2,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr
 
-# ======================================
-# 1) مسار الملف (حسب الهيكلة)
-# ======================================
+
 
 file_path = "Data/Clean_data.xlsx"
 
-# ======================================
-# 2) قراءة البيانات
-# ======================================
 
 male_df = pd.read_excel(file_path, sheet_name="Male")
 female_df = pd.read_excel(file_path, sheet_name="Female")
 time_df = pd.read_excel(file_path, sheet_name="Time")
 
-# ======================================
-# 3) أسماء الأسئلة (Parts)
-# ======================================
 
 questions = time_df["Question"].tolist()
 
-# ======================================
-# 4) حساب متوسط الدرجات
-# ======================================
 
 male_avg = male_df[questions].mean()
 female_avg = female_df[questions].mean()
 
-# ======================================
-# 5) بناء جدول التحليل
-# ======================================
+=
 
 analysis_df = pd.DataFrame({
     "Question": questions,
@@ -52,9 +39,7 @@ analysis_df["Female_ScoreRatio"] = (
 print("\nAnalysis Table:")
 print(analysis_df)
 
-# ======================================
-# 6) تحليل العلاقة (Correlation)
-# ======================================
+
 
 male_corr, male_p = pearsonr(
     analysis_df["EstimatedTime"],
@@ -70,9 +55,7 @@ print("\nCorrelation Results:")
 print(f"Male: r = {male_corr:.3f}, p-value = {male_p:.4f}")
 print(f"Female: r = {female_corr:.3f}, p-value = {female_p:.4f}")
 
-# ======================================
-# 7) الرسم البياني
-# ======================================
+
 
 plt.figure()
 plt.scatter(
